@@ -26,24 +26,19 @@ teclado. -->
 </form>
 
 <?php
-// Función para ordenar tres números de menor a mayor
 function ordenarNumeros($num1, $num2, $num3) {
     $numeros = [$num1, $num2, $num3];
     sort($numeros);
     return $numeros;
 } 
 
-// Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener los números desde el formulario
     $num1 = isset($_POST['num1']) ? intval($_POST['num1']) : 0;
     $num2 = isset($_POST['num2']) ? intval($_POST['num2']) : 0;
     $num3 = isset($_POST['num3']) ? intval($_POST['num3']) : 0;
 
-    // Ordenar los números utilizando la función
     $numeros_ordenados = ordenarNumeros($num1, $num2, $num3);
 
-    // Mostrar el resultado
     echo "<p>Números ordenados: " . implode(", ", $numeros_ordenados) . "</p>";
 }
 ?>

@@ -19,7 +19,6 @@ mostrar en una tabla (etiqueta "table" de HTML). -->
 </form>
 
 <?php
-// Función para mostrar la tabla de multiplicar
 function mostrarTablaMultiplicar($numero) {
     echo "<table border='1'>";
     echo "<tr>
@@ -38,12 +37,9 @@ function mostrarTablaMultiplicar($numero) {
     echo "</table>";
 }
 
-// Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener el número desde el formulario
     $numero = isset($_POST['numero']) ? intval($_POST['numero']) : 0;
 
-    // Mostrar la tabla de multiplicar utilizando la función
     mostrarTablaMultiplicar($numero);
 }
 ?>

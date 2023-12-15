@@ -19,22 +19,17 @@ considera un IVA del 21% -->
 </form>
 
 <?php
-// Función para calcular el total de la factura
 function calcularTotalFactura($base_imponible, $iva_porcentaje = 21) {
     $iva = $base_imponible * ($iva_porcentaje / 100);
     $total = $base_imponible + $iva;
     return ['base_imponible' => $base_imponible, 'iva' => $iva, 'total' => $total];
 }
 
-// Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener la base imponible desde el formulario
     $base_imponible = isset($_POST['base_imponible']) ? floatval($_POST['base_imponible']) : 0;
 
-    // Calcular el total con IVA del 21% utilizando la función
     $resultado = calcularTotalFactura($base_imponible);
 
-    // Mostrar el resultado
     echo "<p>Base Imponible: {$resultado['base_imponible']} euros</p>";
     echo "<p>IVA (21%): {$resultado['iva']} euros</p>";
     echo "<p>Total: {$resultado['total']} euros</p>";

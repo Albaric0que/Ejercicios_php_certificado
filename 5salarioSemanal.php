@@ -20,12 +20,10 @@ hora 41, se pagan a 16 euros la hora. -->
 </form>
 
 <?php
-// Función para calcular el salario semanal
 function calcularSalarioSemanal($horasTrabajadas) {
-    $tarifaOrdinaria = 12; // Tarifa para las primeras 40 horas
-    $tarifaExtraordinaria = 16; // Tarifa para las horas extra (más de 40 horas)
+    $tarifaOrdinaria = 12; 
+    $tarifaExtraordinaria = 16; 
 
-    // Verificar si hay horas extraordinarias
     if ($horasTrabajadas > 40) {
         $horasOrdinarias = 40;
         $horasExtraordinarias = $horasTrabajadas - $horasOrdinarias;
@@ -34,21 +32,16 @@ function calcularSalarioSemanal($horasTrabajadas) {
         $horasExtraordinarias = 0;
     }
 
-    // Calcular el salario
     $salario = ($horasOrdinarias * $tarifaOrdinaria) + ($horasExtraordinarias * $tarifaExtraordinaria);
 
     return $salario;
 }
 
-// Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener las horas trabajadas desde el formulario
     $horas_trabajadas = isset($_POST['horas_trabajadas']) ? floatval($_POST['horas_trabajadas']) : 0;
 
-    // Calcular el salario utilizando la función
     $salario_semanal = calcularSalarioSemanal($horas_trabajadas);
 
-    // Mostrar el resultado
     echo "<p>El salario semanal es: {$salario_semanal} euros.</p>";
 }
 ?>

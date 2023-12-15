@@ -22,7 +22,6 @@
 </form>
 
 <?php
-// Función para determinar el horóscopo
 function determinarHoroscopo($dia, $mes) {
     if (($mes == 3 && $dia >= 21) || ($mes == 4 && $dia <= 19)) {
         return "Aries";
@@ -51,18 +50,13 @@ function determinarHoroscopo($dia, $mes) {
     }
 }
 
-// Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener el día y el mes desde el formulario
     $dia = isset($_POST['dia']) ? intval($_POST['dia']) : 0;
     $mes = isset($_POST['mes']) ? intval($_POST['mes']) : 0;
 
-    // Verificar que el día y el mes sean válidos
     if (($dia >= 1 && $dia <= 31) && ($mes >= 1 && $mes <= 12)) {
-        // Determinar el horóscopo utilizando la función
         $horoscopo = determinarHoroscopo($dia, $mes);
 
-        // Mostrar el resultado
         echo "<p>Tu horóscopo es: {$horoscopo}</p>";
     } else {
         echo "<p>Por favor, introduce un día y un mes válidos.</p>";

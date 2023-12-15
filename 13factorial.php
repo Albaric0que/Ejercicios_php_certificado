@@ -18,7 +18,6 @@
 </form>
 
 <?php
-// Función para calcular el factorial de un número
 function calcularFactorial($n) {
     if ($n == 0 || $n == 1) {
         return 1;
@@ -27,17 +26,12 @@ function calcularFactorial($n) {
     }
 }
 
-// Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener el número desde el formulario
     $numero = isset($_POST['numero']) ? intval($_POST['numero']) : 0;
 
-    // Verificar que el número sea válido
     if ($numero >= 0) {
-        // Calcular el factorial utilizando la función
         $factorial = calcularFactorial($numero);
 
-        // Mostrar el resultado
         echo "<p>El factorial de {$numero} es: {$factorial}</p>";
     } else {
         echo "<p>Por favor, introduce un número entero no negativo.</p>";

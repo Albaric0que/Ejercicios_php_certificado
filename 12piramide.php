@@ -28,15 +28,11 @@ de las 5 que se deben dar a elegir mediante un formulario. -->
 </form>
 
 <?php
-// Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener la altura y el símbolo desde el formulario
     $altura = isset($_POST['altura']) ? intval($_POST['altura']) : 0;
     $simbolo = isset($_POST['simbolo']) ? $_POST['simbolo'] : '*';
 
-    // Verificar que la altura sea un número positivo
     if ($altura > 0) {
-        // Construir y mostrar la pirámide
         echo "<pre>";
         for ($i = 1; $i <= $altura; $i++) {
             echo str_repeat($simbolo, $i) . PHP_EOL;

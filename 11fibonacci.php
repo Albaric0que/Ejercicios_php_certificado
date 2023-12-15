@@ -21,7 +21,6 @@ anteriores, por lo que tendríamos que los términos son 0, 1, 1, 2, 3, 5, 8, 13
 </form>
 
 <?php
-// Función para generar los primeros n términos de la serie de Fibonacci
 function fibonacci($n) {
     $fibonacci = [0, 1];
 
@@ -32,17 +31,12 @@ function fibonacci($n) {
     return $fibonacci;
 }
 
-// Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener el número de términos desde el formulario
     $n = isset($_POST['n']) ? intval($_POST['n']) : 0;
 
-    // Verificar que el número de términos sea válido
     if ($n > 0) {
-        // Generar la serie de Fibonacci utilizando la función
         $serie_fibonacci = fibonacci($n);
 
-        // Mostrar el resultado
         echo "<p>Los primeros {$n} términos de la serie de Fibonacci son: ";
         echo implode(", ", $serie_fibonacci);
         echo "</p>";

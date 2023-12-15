@@ -19,24 +19,17 @@ se deberá introducir por teclado. -->
 </form>
 
 <?php
-// Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener la cantidad en euros desde el formulario
     $euros = isset($_POST['euros']) ? floatval($_POST['euros']) : 0;
 
-    // Realizar la conversión
     $pesetas = eurosAPesetas($euros);
 
-    // Mostrar el resultado
     echo "<p>{$euros} euros son {$pesetas} pesetas.</p>";
 }
 
-// Función para convertir euros a pesetas
 function eurosAPesetas($euros) {
-    // CAmbio de euro a pesetas
     $cambioAntiguo = 166.386;
 
-    // Realizar la conversión
     $pesetas = $euros * $cambioAntiguo;
 
     return $pesetas;

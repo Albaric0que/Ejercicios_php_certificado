@@ -21,7 +21,6 @@ introducir por teclado. -->
 </form>
 
 <?php
-// Función para determinar el saludo según la hora
 function determinarSaludo($hora) {
     if ($hora >= 6 && $hora < 12) {
         return "Buenos días";
@@ -32,17 +31,12 @@ function determinarSaludo($hora) {
     }
 }
 
-// Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener la hora desde el formulario
     $hora = isset($_POST['hora']) ? intval($_POST['hora']) : 0;
 
-    // Verificar que la hora sea válida
     if ($hora >= 0 && $hora <= 23) {
-        // Determinar el saludo utilizando la función
         $saludo = determinarSaludo($hora);
 
-        // Mostrar el resultado
         echo "<p>{$saludo}</p>";
     } else {
         echo "<p>Por favor, introduce una hora válida (0-23).</p>";

@@ -23,22 +23,17 @@
 </form>
 
 <?php
-// Función para calcular el volumen del cono
 function calcularVolumenCono($radio, $altura) {
     $volumen = (1/3) * M_PI * $radio**2 * $altura;
     return $volumen;
 }
 
-// Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener el radio y la altura desde el formulario
     $radio = isset($_POST['radio']) ? floatval($_POST['radio']) : 0;
     $altura = isset($_POST['altura']) ? floatval($_POST['altura']) : 0;
 
-    // Calcular el volumen utilizando la función
     $volumen = calcularVolumenCono($radio, $altura);
 
-    // Mostrar el resultado
     echo "<p>El volumen del cono es: {$volumen} unidades cúbicas.</p>";
 }
 ?>
